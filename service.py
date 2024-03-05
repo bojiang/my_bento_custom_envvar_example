@@ -1,3 +1,5 @@
+import os
+
 import bentoml
 import numpy as np
 
@@ -15,6 +17,7 @@ class IrisClassifier:
     preprocessing = bentoml.depends(Preprocessing)
 
     def __init__(self):
+        assert os.environ.get("TEST_ENV") == "123"
         import joblib
 
         self.model = joblib.load(self.iris_model.path_of("model.pkl"))
