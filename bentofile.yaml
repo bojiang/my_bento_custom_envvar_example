@@ -1,0 +1,14 @@
+service: "service.py:IrisClassifier"
+labels:
+  owner: bentoml-team
+  project: gallery
+include:
+  - "*.py"
+  - "*.sh"
+envs:
+  - name: "TEST_ENV"
+    value: ""
+python:
+  requirements_txt: "./requirements.txt"
+docker:
+  setup_script: "./setup.sh"
